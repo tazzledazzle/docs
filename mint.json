@@ -17,13 +17,13 @@
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "name": "email me",
+      "url": "mailto:terenceschumacher@gmail.com"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "GitHub",
+    "url": "https://github.com/tazzledazzle"
   },
   "tabs": [
     {
@@ -33,32 +33,32 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "name": "terenceschumacher",
+      "icon": "linkedin",
+      "url": "https://linkedin.com/terenceschumacher"
     },
     {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "name": "GitHub (tazzledazzle)",
+      "icon": "github",
+      "url": "https://github.com/tazzledazzle"
     },
     {
       "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "icon": "github-alt",
+      "url": "https://tazzledazzle.github.io"
     }
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "About Me",
       "pages": [
         "introduction",
-        "quickstart",
-        "development"
+        "development",
+        "documentation/main"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Projects",
       "pages": [
         "essentials/markdown",
         "essentials/code",
@@ -73,19 +73,11 @@
       "pages": [
         "api-reference/introduction"
       ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
-      ]
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://linkedin.com/company/mintlify"
+    "website": "https://tazzledazzle.github.io",
+    "github": "https://github.com/tazzledazzle",
+    "linkedin": "https://linkedin.com/terenceschumacher"
   }
 }
