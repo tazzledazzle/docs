@@ -1,379 +1,13 @@
----
-title: Reusable Snippets
-description: Reusable, custom snippets that have been collected
-icon: 'recycle'
----
 
-import SnippetIntro from '/snippets/snippet-intro.mdx';
-
-<SnippetIntro />
-
-## Code problems
-<AccordionGroup>
-  <Accordion title="twoSums"> 
-    #### **Problem Statement:**
-    Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
-    #### **Key Identifiers:**
-      * Array of integers
-      * Target sum
-      * Return indices of two numbers
-    #### **Pseudocode:**
-   
-    #### **Key Details Interviewers Look For:**
-      * Understanding of hash maps for O(n) solution
-      * Handling edge cases (e.g., no solution)
-      * Time and space complexity analysis
-  <CodeGroup>
-    ```python Pseudocode
-    function twoSum(nums, target):
-        hashmap = {}
-        for i from 0 to length(nums) - 1:
-            complement = target - nums[i]
-            if complement in hashmap:
-                return [hashmap[complement], i]
-            hashmap[nums[i]] = i
-        return []
-    ```
-    ```cpp C++
-    class Solution {
-    public:
-        vector<int> twoSum(vector<int>& nums, int target) {
-            std::unordered_map<int, int> hashmap;
-    
-            for (int i = 0; i < nums.size(); ++i) {
-                int complement = target - nums[i];
-                if (hashmap.find(complement) != hashmap.end()) {
-                    return {hashmap[complement], i};
-                }
-                hashmap[nums[i]] = i;
-            }
-            return {};
-        }
-    };
-    ```
-    </CodeGroup>
-  
-  </Accordion>
-  <Accordion title="Best Time to Buy and Sell Stock"> 
-    
-    <CodeGroup>
-    </CodeGroup>
-  </Accordion>
-  <Accordion title="Contains Duplicate"> 
-    
-    <CodeGroup>
-    </CodeGroup>
-  </Accordion>
-  <Accordion title="Product of Array Except Self">
-    
-    <CodeGroup>
-    </CodeGroup> 
-  </Accordion>
-  {/*
-  <Accordion title="twoSums"> 
-  </Accordion>
-  <Accordion title="twoSums"> 
-  </Accordion>
-  <Accordion title="twoSums"> 
-  </Accordion>
-  <Accordion title="twoSums"> 
-  </Accordion>
-  <Accordion title="twoSums"> 
-  </Accordion>
-  <Accordion title="twoSums"> 
-  </Accordion>
-  <Accordion title="twoSums"> 
-  </Accordion>
-  <Accordion title="twoSums"> 
-  </Accordion>
-  <Accordion title="twoSums"> 
-  </Accordion>
-  <Accordion title="twoSums"> 
-  </Accordion>
-  <Accordion title="twoSums"> 
-  </Accordion>
-  <Accordion title="twoSums"> 
-  </Accordion>
-  <Accordion title="twoSums"> 
-  </Accordion>
-  <Accordion title="twoSums"> 
-  </Accordion>
-  <Accordion title="twoSums"> 
-  </Accordion>
-  <Accordion title="twoSums"> 
-  </Accordion>
-  <Accordion title="twoSums"> 
-  </Accordion>
-  <Accordion title="twoSums"> 
-  </Accordion>
-  <Accordion title="twoSums"> 
-  </Accordion>
-  */}
-</AccordionGroup>
-
-
-# Comprehensive List of 150 Common Coding Interview Questions — Nov 12, 2024 at 11:39 AM
-# ==🟡Comprehensive List of 150 Common Coding Interview== Questions
-> I’m not sure if these are the appropriate commons
-
-Preparing for coding interviews can be daunting, but having a structured list of common questions can significantly enhance your readiness. Below is a comprehensive list of 150 common coding interview questions, categorized by topic. Each question includes a brief problem statement with key identifiers, pseudocode for the solution, and the key details interviewers typically look for.
-
-## Table of Contents
-1. **Arrays and Strings**
-2. **Linked Lists**
-3. **Stacks and Queues**
-4. **Trees and Graphs**
-5. **Sorting and Searching**
-6. **Dynamic Programming**
-7. **Recursion and Backtracking**
-8. **Bit Manipulation**
-9. **Mathematical Problems**
-10. **System Design and Scalability**
-## 1. Arrays and Strings
-### 1.1 Two Sum
-
-* **Problem Statement:**
-Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
-* **Key Identifiers:**
-  * Array of integers
-  * Target sum
-  * Return indices of two numbers
-* **Pseudocode:**
-```
-function twoSum(nums, target):
-    hashmap = {}
-    for i from 0 to length(nums) - 1:
-        complement = target - nums[i]
-        if complement in hashmap:
-            return [hashmap[complement], i]
-        hashmap[nums[i]] = i
-    return []
-```
-* **Key Details Interviewers Look For:**
-  * Understanding of hash maps for O(n) solution
-  * Handling edge cases (e.g., no solution)
-  * Time and space complexity analysis
-### 1.2 Best Time to Buy and Sell Stock
-* **Problem Statement:**
-  * Given an array prices where prices[i] is the price of a given stock on day i, find the maximum profit you can achieve by making at most one transaction.
-* **Key Identifiers:**
-  * Array of stock prices
-  * Maximize profit
-  * Single transaction (buy and sell once)
-* **Pseudocode:**
-```
-function maxProfit(prices):
-    min_price = infinity
-    max_profit = 0
-    for price in prices:
-        if price < min_price:
-            min_price = price
-        elif price - min_price > max_profit:
-            max_profit = price - min_price
-    return max_profit
-```
-* **Key Details Interviewers Look For:**
-  * Single pass solution
-  * Tracking minimum price and maximum profit
-  * Edge case handling (e.g., empty array)
-### 1.3 Contains Duplicate<!-- {"fold":true} -->
-* **Problem Statement:**
-  * Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice, and it should return false if every element is distinct.
-* **Key Identifiers:**
-  * Array of integers
-  * Check for duplicates
-  * Return boolean
-* **Pseudocode:**
-```
-function containsDuplicate(nums):
-    seen = set()
-    for num in nums:
-        if num in seen:
-            return true
-        seen.add(num)
-    return false
-```
-* **Key Details Interviewers Look For:**
-  * Use of appropriate data structures (e.g., hash set)
-  * Time and space complexity
-  * Alternative solutions (sorting)
-### 1.4 Product of Array Except Self<!-- {"fold":true} -->
-* **Problem Statement:**
-  * Given an array nums of n integers where n > 1, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
-* **Key Identifiers:**
-  * Array of integers
-  * Product except self
-  * No division operator
-* **Pseudocode:**
-```
-function productExceptSelf(nums):
-    length = len(nums)
-    output = [1] * length
-    left = 1
-    for i from 0 to length - 1:
-        output[i] = left
-        left *= nums[i]
-    right = 1
-    for i from length - 1 to 0:
-        output[i] *= right
-        right *= nums[i]
-    return output
-```
-* **Key Details Interviewers Look For:**
-  * Understanding of prefix and suffix products
-  * Space optimization
-  * Handling of zeroes in the array
-### 1.5 Maximum Subarray<!-- {"fold":true} -->
-* **Problem Statement:**
-  * Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
-* **Key Identifiers:**
-  * Array of integers
-  * Contiguous subarray
-  * Maximum sum
-* **Pseudocode:**
-```
-function maxSubArray(nums):
-    max_current = max_global = nums[0]
-    for i from 1 to length(nums) - 1:
-        max_current = max(nums[i], max_current + nums[i])
-        if max_current > max_global:
-            max_global = max_current
-    return max_global
-```
-* **Key Details Interviewers Look For:**
-  * Implementation of Kadane’s Algorithm
-  * Understanding of dynamic programming
-  * Edge case handling (e.g., all negative numbers)
-### 1.6 Merge Intervals
-* **Problem Statement:**
-  * `Given a collection of intervals, merge all overlapping intervals.
-* **Key Identifiers:**
-  * List of intervals
-  * Merge overlapping
-  * Return list of merged intervals
-* **Pseudocode:**
-```
-function mergeIntervals(intervals):
-    if intervals is empty:
-        return []
-    sort intervals based on start time
-    merged = [intervals[0]]
-    for i from 1 to length(intervals) - 1:
-        last = merged[-1]
-        current = intervals[i]
-        if current.start <= last.end:
-            last.end = max(last.end, current.end)
-        else:
-            merged.append(current)
-    return merged
-```
-* **Key Details Interviewers Look For:**
-  * Sorting intervals
-  * Correctly merging overlapping intervals
-  * Time complexity analysis
-### 1.7 Search in Rotated Sorted Array<!-- {"fold":true} -->
-* **Problem Statement:**
-  * Suppose an array sorted in ascending order is rotated at some pivot. Search for a target value in the array and return its index. If not found, return -1.
-* **Key Identifiers:**
-  * Rotated sorted array
-  * Binary search
-  * Return index or -1
-* **Pseudocode:**
-```
-function searchRotatedArray(nums, target):
-    left = 0
-    right = len(nums) - 1
-    while left <= right:
-        mid = left + (right - left) // 2
-        if nums[mid] == target:
-            return mid
-        if nums[left] <= nums[mid]:
-            if nums[left] <= target < nums[mid]:
-                right = mid - 1
-            else:
-                left = mid + 1
-        else:
-            if nums[mid] < target <= nums[right]:
-                left = mid + 1
-            else:
-                right = mid - 1
-    return -1
-```
-* **Key Details Interviewers Look For:**
-  * Modification of binary search for rotated arrays
-  * Identifying sorted halves
-  * Handling duplicates (if applicable)
-### 1.8 Longest Consecutive Sequence<!-- {"fold":true} -->
-* **Problem Statement:**
-  * Given an unsorted array of integers, find the length of the longest consecutive elements sequence.
-* **Key Identifiers:**
-  * Unsorted array
-  * Longest consecutive sequence
-  * Return length
-* **Pseudocode:**
-```
-function longestConsecutive(nums):
-    num_set = set(nums)
-    max_length = 0
-    for num in num_set:
-        if num - 1 not in num_set:
-            current_num = num
-            current_length = 1
-            while current_num + 1 in num_set:
-                current_num += 1
-                current_length += 1
-            max_length = max(max_length, current_length)
-    return max_length
-```
-* **Key Details Interviewers Look For:**
-  * Use of hash sets for O(n) solution
-  * Avoiding unnecessary computations
-  * Edge case handling (e.g., empty array)
-### 1.9 3Sum<!-- {"fold":true} -->
-* **Problem Statement:**
-  * Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
-* **Key Identifiers:**
-  * Array of integers
-  * Three numbers sum to zero
-  * Return unique triplets
-* **Pseudocode:**
-```
-function threeSum(nums):
-    nums.sort()
-    triplets = []
-    for i from 0 to len(nums) - 3:
-        if i > 0 and nums[i] == nums[i-1]:
-            continue
-        left = i + 1
-        right = len(nums) - 1
-        while left < right:
-            total = nums[i] + nums[left] + nums[right]
-            if total == 0:
-                triplets.append([nums[i], nums[left], nums[right]])
-                while left < right and nums[left] == nums[left + 1]:
-                    left += 1
-                while left < right and nums[right] == nums[right - 1]:
-                    right -= 1
-                left += 1
-                right -= 1
-            elif total < 0:
-                left += 1
-            else:
-                right -= 1
-    return triplets
-```
-* **Key Details Interviewers Look For:**
-  * Sorting to manage duplicates and use two pointers
-  * Time complexity considerations
-  * Ensuring uniqueness of triplets
-### 1.10 Rotate Image<!-- {"fold":true} -->
-* **Problem Statement:**
+          ### ********** #####
+### ********** #####
+### **Problem Statement:**
 * You are given an n x n 2D matrix representing an image. Rotate the image by 90 degrees (clockwise). Do this in-place.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * n x n matrix
   * Rotate 90 degrees clockwise
   * In-place rotation
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function rotateImage(matrix):
     n = len(matrix)
@@ -386,18 +20,18 @@ function rotateImage(matrix):
         reverse(matrix[i])
 
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Understanding of matrix transpose and row reversal
   * In-place manipulation
   * Space and time complexity
-### 1.11 Set Matrix Zeroes<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given an m x n matrix, if an element is 0, set its entire row and column to 0. Do it in place.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * m x n matrix
   * Set row and column to zero
   * In-place without using extra space
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function setMatrixZeroes(matrix):
     m = len(matrix)
@@ -436,18 +70,18 @@ function setMatrixZeroes(matrix):
         for i from 0 to m - 1:
             matrix[i][0] = 0
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Efficient use of space by leveraging matrix markers
   * Handling edge cases (first row and column)
   * In-place modification without additional storage
-### 1.12 Valid Anagram<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given two strings s and t, write a function to determine if t is an anagram of s.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Two strings
   * Anagram check
   * Return boolean
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function isAnagram(s, t):
     if len(s) != len(t):
@@ -461,18 +95,18 @@ function isAnagram(s, t):
         count[char] -= 1
     return true
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Use of hash maps or character counting
   * Handling of different character cases
   * Time and space complexity
-### 1.13 Longest Substring Without Repeating Characters
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a string, find the length of the longest substring without repeating characters.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * String input
   * Longest substring
   * No repeating characters
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function lengthOfLongestSubstring(s):
     char_map = {}
@@ -485,18 +119,18 @@ function lengthOfLongestSubstring(s):
         max_length = max(max_length, right - left + 1)
     return max_length
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Sliding window technique
   * Efficiently updating pointers
   * Managing character indices
-### 1.14 Group Anagrams
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given an array of strings, group the anagrams together.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of strings
   * Group anagrams
   * Return list of groups
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function groupAnagrams(strs):
     groups = {}
@@ -507,18 +141,18 @@ function groupAnagrams(strs):
         groups[key].append(s)
     return list(groups.values())
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Efficiently grouping using sorted strings as keys
   * Alternative methods (e.g., character count as key)
   * Time and space complexity
-### 1.15 Container With Most Water
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given n non-negative integers a1, a2, ..., an, where each represents a point at coordinate (i, ai), find two lines that together with the x-axis form a container that holds the most water.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of heights
   * Maximize area formed by two lines
   * Return maximum water
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function maxArea(height):
     left = 0
@@ -534,20 +168,20 @@ function maxArea(height):
             right -= 1
     return max_area
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Two-pointer approach
   * Greedy strategy to maximize area
   * Understanding why moving the shorter line is optimal
 ----
 ## 2. Linked Lists
-### 2.1 Reverse a Linked List<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Reverse a singly linked list.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Singly linked list
   * Reverse pointers
   * Return new head
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function reverseList(head):
     prev = null
@@ -559,18 +193,18 @@ function reverseList(head):
         current = next_node
     return prev
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Iterative vs. recursive approaches
   * Handling edge cases (empty list, single node)
   * In-place reversal without extra space
-### 2.2 Detect Cycle in a Linked List<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a linked list, determine if it has a cycle in it.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Linked list with possible cycle
   * Detect cycle
   * Return boolean
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function hasCycle(head):
     slow = head
@@ -582,18 +216,18 @@ function hasCycle(head):
             return true
     return false
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Floyd’s Tortoise and Hare algorithm
   * Understanding of two-pointer technique
   * Time and space efficiency
-### 2.3 Merge Two Sorted Lists<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Merge two sorted linked lists and return it as a new sorted list.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Two sorted linked lists
   * Merge into one sorted list
   * Return new head
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function mergeTwoLists(l1, l2):
     dummy = ListNode(0)
@@ -609,18 +243,18 @@ function mergeTwoLists(l1, l2):
     tail.next = l1 if l1 is not null else l2
     return dummy.next
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Iterative vs. recursive merging
   * Handling of edge cases (e.g., one list empty)
   * Maintaining sorted order
-### 2.4 Remove Nth Node From End of List<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given the head of a linked list, remove the nth node from the end of the list and return its head.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Linked list
   * Remove nth node from end
   * Return modified list head
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function removeNthFromEnd(head, n):
     dummy = ListNode(0)
@@ -635,18 +269,18 @@ function removeNthFromEnd(head, n):
     second.next = second.next.next
     return dummy.next
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Two-pointer technique
   * Use of dummy node to simplify edge cases
   * Correctly identifying the node to remove
-### 2.5 Linked List Cycle II<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Linked list with cycle
   * Identify cycle start node
   * Return node or null
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function detectCycle(head):
     slow = head
@@ -666,18 +300,18 @@ function detectCycle(head):
         fast = fast.next
     return slow
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Floyd’s algorithm to detect cycle
   * Resetting pointers to find cycle start
   * Time and space efficiency
-### 2.6 Intersection of Two Linked Lists<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Find the node at which the intersection of two singly linked lists begins.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Two linked lists
   * Intersection node
   * Return node or null
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function getIntersectionNode(headA, headB):
     if headA is null or headB is null:
@@ -689,18 +323,18 @@ function getIntersectionNode(headA, headB):
         pointerB = pointerB.next if pointerB is not null else headA
     return pointerA
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Handling different list lengths
   * Using two pointers to traverse lists
   * Time and space complexity
-### 2.7 Remove Linked List Elements<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Remove all elements from a linked list of integers that have value val.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Linked list
   * Remove nodes with specific value
   * Return modified list head
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function removeElements(head, val):
     dummy = ListNode(0)
@@ -713,18 +347,18 @@ function removeElements(head, val):
             current = current.next
     return dummy.next
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Use of dummy node to handle head removal
   * Iterative traversal
   * Correctly updating pointers
-### 2.8 Palindrome Linked List
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Determine whether a linked list is a palindrome.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Linked list
   * Palindrome check
   * Return boolean
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function isPalindrome(head):
     slow = fast = head
@@ -742,18 +376,18 @@ function isPalindrome(head):
         slow = slow.next
     return true
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Finding the middle of the list
   * Using stack for comparison
   * Alternative methods (reversing second half)
-### 2.9 Add Two Numbers<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * You are given two non-empty linked lists representing two non-negative integers. Add the two numbers and return the sum as a linked list.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Two linked lists
   * Each node contains a single digit
   * Return sum as linked list
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function addTwoNumbers(l1, l2):
     dummy = ListNode(0)
@@ -772,18 +406,18 @@ function addTwoNumbers(l1, l2):
             l2 = l2.next
     return dummy.next
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Handling different list lengths
   * Managing carry-over during addition
   * Creating new nodes correctly
-### 2.10 Copy List with Random Pointer<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of the list.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Linked list with random pointers
   * Deep copy
   * Return new head
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function copyRandomList(head):
     if head is null:
@@ -811,18 +445,18 @@ function copyRandomList(head):
         current = current.next
     return copy_head
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Handling of random pointers
   * Efficiently creating deep copies without extra space
   * Maintaining original list structure
-### 2.11 Remove Duplicates from Sorted List<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a sorted linked list, delete all duplicates such that each element appears only once.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Sorted linked list
   * Remove duplicates
   * Return modified list head
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function deleteDuplicates(head):
   current = head
@@ -833,18 +467,18 @@ function deleteDuplicates(head):
   current = current.next
   return head
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Traversing sorted list to identify duplicates
   * In-place modification
   * Handling edge cases (e.g., empty list)
-### 2.12 Intersection of Two Linked Lists (with cycles)<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given two linked lists that may contain cycles, determine if they intersect and return the intersecting node.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Two linked lists with possible cycles
   * Find intersection node
   * Return node or null
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function getIntersectionNodeWithCycles(headA, headB):
     # Detect cycles in both lists
@@ -870,21 +504,21 @@ function getIntersectionNodeWithCycles(headA, headB):
         ptr2 = ptr2.next if ptr2 else headA
     return ptr1
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Handling lists with and without cycles
   * Extending basic intersection logic
   * Ensuring no infinite loops
 ----
 ## 3. Stacks and Queues
-### 3.1 Valid Parentheses<!-- {"fold":true} -->
+### ********** #####
 
-* **Problem Statement:**
+### **Problem Statement:**
   * Given a string containing just the characters (, ), {, }, [ and ], determine if the input string is valid.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * String of parentheses
   * Check for validity
   * Return boolean
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function isValid(s):
     stack = []
@@ -899,20 +533,20 @@ function isValid(s):
     return not stack
 ```
 
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Use of stack data structure
   * Matching opening and closing brackets
   * Handling edge cases (e.g., empty string)
 
-### 3.2 Min Stack<!-- {"fold":true} -->
+### ********** #####
 
-* **Problem Statement:**
+### **Problem Statement:**
   * Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Stack operations
   * Retrieve minimum in O(1)
   * Design data structure
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 class MinStack:
     def __init__():
@@ -935,20 +569,20 @@ class MinStack:
         return min_stack[-1]
 ```
 
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Auxiliary stack to track minimums
   * Ensuring all operations are O(1)
   * Edge case handling (e.g., empty stack)
 
-### 3.3 Implement Queue using Stacks<!-- {"fold":true} -->
+### ********** #####
 
-* **Problem Statement:**
+### **Problem Statement:**
   * Implement a first in first out (FIFO) queue using only two stacks.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Queue operations (enqueue, dequeue)
   * Use two stacks
   * Maintain FIFO order
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 class MyQueue:
     def __init__():
@@ -974,19 +608,19 @@ class MyQueue:
         return not stack_in and not stack_out
 
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Transfer elements between stacks to maintain order
   * Amortized time complexity
   * Correct handling of empty states
 
-### 3.4 Evaluate Reverse Polish Notation<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Evaluate the value of an arithmetic expression in Reverse Polish Notation.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Reverse Polish Notation (RPN)
   * Arithmetic operations
   * Return integer result
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function evalRPN(tokens):
     stack = []
@@ -1008,20 +642,20 @@ function evalRPN(tokens):
     return stack.pop()
 ```
 
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Use of stack for evaluation
   * Handling division truncation
   * Correct operation order
 
-### 3.5 Daily Temperatures<!-- {"fold":true} -->
+### ********** #####
 
-* **Problem Statement:**
+### **Problem Statement:**
   * Given a list of daily temperatures, return a list such that for each day, it tells you how many days you would have to wait until a warmer temperature.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of temperatures
   * Days to wait for warmer temp
   * Return list of integers
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function dailyTemperatures(T):
     n = len(T)
@@ -1035,20 +669,20 @@ function dailyTemperatures(T):
     return answer
 
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Monotonic stack usage
   * Efficient traversal
   * Handling of no warmer days
 
-### 3.6 Largest Rectangle in Histogram<!-- {"fold":true} -->
+### ********** #####
 
-* **Problem Statement:**
+### **Problem Statement:**
   * Given an array of integers representing the histogram’s bar height where the width of each bar is 1, find the area of the largest rectangle in the histogram.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Histogram bar heights
   * Largest rectangle area
   * Return integer area
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function largestRectangleArea(heights):
     stack = []
@@ -1063,20 +697,20 @@ function largestRectangleArea(heights):
     return max_area
 ```
 
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Use of stack to track indices
   * Handling of increasing and decreasing heights
   * Correct calculation of area
 
-### 3.7 Implement Stack with O(1) Time for Push, Pop, and GetMin<!-- {"fold":true} -->
+### ********** #####
 
-* **Problem Statement:**
+### **Problem Statement:**
   * Design a stack that supports push, pop, and retrieving the minimum element in constant time.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Stack operations
   * Retrieve minimum in O(1)
   * Design data structure
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 class MinStack:
     def __init__():
@@ -1099,20 +733,20 @@ class MinStack:
         return min_stack[-1]
 ```
 
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Auxiliary stack for tracking minimums
   * Ensuring all operations are O(1)
   * Edge case handling
 
-### 3.8 Simplify Path<!-- {"fold":true} -->
+### ********** #####
 
-* **Problem Statement:**
+### **Problem Statement:**
   * Given a string path, which is an absolute path for a file in Unix-style, simplify it.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Unix-style file path
   * Simplify path
   * Return canonical path
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function simplifyPath(path):
     stack = []
@@ -1127,20 +761,20 @@ function simplifyPath(path):
             stack.append(component)
     return '/' + '/'.join(stack)
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Handling of ‘.’, ‘..’, and multiple slashes
   * Use of stack to manage path components
   * Edge case handling (e.g., root directory)
 
-### 3.9 Valid Stack Sequence<!-- {"fold":true} -->
+### ********** #####
 
-* **Problem Statement:**
+### **Problem Statement:**
   * Given two sequences pushed and popped with distinct values, return true if and only if this could have been the result of a sequence of push and pop operations on an initially empty stack.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Two sequences (push and pop)
   * Validate stack operations
   * Return boolean
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function validateStackSequences(pushed, popped):
     stack = []
@@ -1152,19 +786,19 @@ function validateStackSequences(pushed, popped):
             j += 1
     return not stack
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Simulating stack operations
   * Ensuring the pop sequence is achievable
   * Time and space efficiency
 
-### 3.10 Implement Queue using Deque<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Implement a double-ended queue (deque) supporting push and pop operations from both ends.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Double-ended queue
   * Push and pop from both ends
   * Design data structure
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 class Deque:
     def __init__():
@@ -1185,20 +819,20 @@ class Deque:
     def isEmpty():
         return len(deque) == 0
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Understanding of deque operations
   * Efficient implementation using built-in structures
   * Handling of empty deque scenarios
 -----
 ## 4. Trees and Graphs
-### 4.1 Binary Tree Inorder Traversal<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a binary tree, return the inorder traversal of its nodes’ values.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Binary tree
   * Inorder traversal
   * Return list of values
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function inorderTraversal(root):
     result = []
@@ -1213,18 +847,18 @@ function inorderTraversal(root):
         current = current.right
     return result
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Iterative vs. recursive traversal
   * Correct order of left, root, right
   * Handling of null nodes
-### 4.2 Maximum Depth of Binary Tree<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a binary tree, find its maximum depth.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Binary tree
   * Maximum depth
   * Return integer depth
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function maxDepth(root):
     if root is null:
@@ -1234,19 +868,19 @@ function maxDepth(root):
     return max(left_depth, right_depth) + 1
 ```
 
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Recursive depth-first search
   * Alternative iterative solutions (BFS)
   * Correct base cases
 
-### 4.3 Binary Tree Level Order Traversal<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Return the level order traversal of a binary tree’s nodes’ values.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Binary tree
   * Level order traversal
   * Return list of levels
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function levelOrder(root):
     if root is null:
@@ -1267,19 +901,19 @@ function levelOrder(root):
     return result
 ```
 
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Use of queue for BFS
   * Correct grouping of nodes by level
   * Handling empty trees
 
-### 4.4 Validate Binary Search Tree<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Determine if a given binary tree is a valid binary search tree (BST).
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Binary tree
   * Binary search tree properties
   * Return boolean
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function isValidBST(root, min = -infinity, max = infinity):
     if root is null:
@@ -1288,18 +922,18 @@ function isValidBST(root, min = -infinity, max = infinity):
         return false
     return isValidBST(root.left, min, root.val) and isValidBST(root.right, root.val, max)
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Understanding of BST properties
   * Recursive range validation
   * Handling of edge cases
-### 4.5 Symmetric Tree<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Check whether a binary tree is symmetric around its center.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Binary tree
   * Symmetric around center
   * Return boolean
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function isSymmetric(root):
     if root is null:
@@ -1315,18 +949,18 @@ function isMirror(left, right):
         return false
     return isMirror(left.left, right.right) and isMirror(left.right, right.left)
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Recursive symmetry check
   * Alternative iterative solutions using queues
   * Handling of null nodes
-### 4.6 Binary Tree Zigzag Level Order Traversal
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Return the zigzag level order traversal of a binary tree’s nodes’ values.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Binary tree
   * Zigzag traversal (left to right, then right to left)
   * Return list of levels
-  * **Pseudocode:**
+  ### **Pseudocode:**
 ```
 function zigzagLevelOrder(root):
     if root is null:
@@ -1351,18 +985,18 @@ function zigzagLevelOrder(root):
         left_to_right = not left_to_right
     return result
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Alternating the insertion order
   * Efficient traversal using BFS
   * Managing traversal direction flag
-### 4.7 Construct Binary Tree from Preorder and Inorder Traversal<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given preorder and inorder traversal of a tree, construct the binary tree.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Preorder and inorder arrays
   * Reconstruct binary tree
   * Return tree root
-  * **Pseudocode:**
+  ### **Pseudocode:**
 ```
 function buildTree(preorder, inorder):
     if not preorder or not inorder:
@@ -1374,18 +1008,18 @@ function buildTree(preorder, inorder):
     root.right = buildTree(preorder[mid+1:], inorder[mid+1:])
     return root
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Recursive tree construction
   * Handling of index boundaries
   * Optimization using hash maps for inorder indices
-### 4.8 Lowest Common Ancestor of a Binary Tree<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Binary tree
   * Two nodes
   * Find LCA node
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function lowestCommonAncestor(root, p, q):
     if root is null or root == p or root == q:
@@ -1396,19 +1030,19 @@ function lowestCommonAncestor(root, p, q):
         return root
     return left if left else right
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Recursive traversal
   * Identifying the split point for LCA
   * Handling cases where one node is ancestor of the other
 
-### 4.9 Serialize and Deserialize Binary Tree<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Design an algorithm to serialize and deserialize a binary tree.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Binary tree
   * Serialize to string
   * Deserialize back to tree
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 class Codec:
     def serialize(root):
@@ -1435,18 +1069,18 @@ class Codec:
             return node
         return build()
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Choice of traversal method (preorder, inorder, etc.)
   * Handling null nodes
   * Ensuring accurate reconstruction
-### 4.10 Binary Tree Right Side View<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
 * Given a binary tree, imagine yourself standing on the right side and return the values of the nodes you can see ordered from top to bottom.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Binary tree
   * Right side view
   * Return list of visible node values
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function rightSideView(root):
     if root is null:
@@ -1465,20 +1099,20 @@ function rightSideView(root):
                 queue.append(node.right)
     return result
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * BFS traversal
   * Capturing the last node at each level
   * Efficient use of queues
 ----
-## 5. Sorting and Searching<!-- {"fold":true} -->
-### 5.1 Merge Sort<!-- {"fold":true} -->
-* **Problem Statement:**
+## 5. Sorting and Searching
+### ********** #####
+### **Problem Statement:**
   * Implement the merge sort algorithm on an array of integers.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of integers
   * Implement merge sort
   * Return sorted array
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function mergeSort(arr):
     if len(arr) <= 1:
@@ -1502,19 +1136,19 @@ function merge(left, right):
     result.extend(right[j:])
     return result
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Divide and conquer approach
   * Correct merging of sorted halves
   * Time and space complexity
 
-### 5.2 Quick Sort<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Implement the quick sort algorithm on an array of integers.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of integers
   * Implement quick sort
   * Return sorted array
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function quickSort(arr):
     if len(arr) <= 1:
@@ -1525,19 +1159,19 @@ function quickSort(arr):
     right = [x for x in arr if x > pivot]
     return quickSort(left) + middle + quickSort(right)
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Choosing a pivot
   * Partitioning the array
   * Recursive sorting of partitions
 
-### 5.3 Binary Search<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Implement binary search on a sorted array of integers to find a target value.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Sorted array
   * Binary search
   * Return index or -1
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function binarySearch(arr, target):
     left = 0
@@ -1552,18 +1186,18 @@ function binarySearch(arr, target):
             right = mid - 1
     return -1
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Correct calculation of mid to avoid overflow
   * Iterative vs. recursive approaches
   * Handling of edge cases (e.g., empty array)
-### 5.4 Search in Rotated Sorted Array<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a rotated sorted array, search for a target value and return its index. If not found, return -1.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Rotated sorted array
   * Binary search modification
   * Return index or -1
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function searchRotatedArray(nums, target):
     left = 0
@@ -1584,18 +1218,18 @@ function searchRotatedArray(nums, target):
                 right = mid - 1
     return -1
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Identifying sorted half
   * Adjusting search boundaries accordingly
   * Time and space complexity analysis
-### 5.5 Find First and Last Position of Element in Sorted Array<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given an array of integers sorted in ascending order, find the starting and ending position of a given target value.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Sorted array
   * Target value
   * Return first and last indices
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function searchRange(nums, target):
     return [findFirst(nums, target), findLast(nums, target)]
@@ -1630,18 +1264,18 @@ function findLast(nums, target):
             right = mid - 1
     return last
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Performing two separate binary searches
   * Ensuring first and last positions are correctly identified
   * Handling cases where target is not present
-### 5.6 Kth Largest Element in an Array<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Find the kth largest element in an unsorted array.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Unsorted array
   * Kth largest element
   * Return integer value
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function findKthLargest(nums, k):
     heap = []
@@ -1657,19 +1291,19 @@ function heapify(heap, size):
     pass
 ```
 *Note: Typically implemented using a min-heap of size k for efficiency.*
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Use of heap data structure
   * Time complexity considerations (O(n log k))
   * Alternative solutions (quickselect)
 
-### 5.7 Top K Frequent Elements<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a non-empty array of integers, return the k most frequent elements.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of integers
   * Top k frequent elements
   * Return list of integers
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function topKFrequent(nums, k):
     frequency = {}
@@ -1687,18 +1321,18 @@ function topKFrequent(nums, k):
     return result
 ```
 *Note: Typically implemented using a min-heap or bucket sort for better efficiency.*
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Frequency counting using hash maps
   * Efficient retrieval of top k elements
   * Time and space optimization
-### 5.8 Search a 2D Matrix<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Write an efficient algorithm that searches for a value in an m x n matrix.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * 2D matrix
   * Sorted properties (rows and columns)
   * Return boolean or indices
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function searchMatrix(matrix, target):
     if not matrix or not matrix[0]:
@@ -1718,18 +1352,18 @@ function searchMatrix(matrix, target):
             right = mid - 1
     return false
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Treating matrix as a sorted list
   * Correct index calculations
   * Binary search implementation
-### 5.9 Find Peak Element<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * A peak element is an element that is greater than its neighbors. Find a peak element in the array.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of integers
   * Peak element definition
   * Return index of a peak
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function findPeakElement(nums):
     left = 0
@@ -1742,18 +1376,18 @@ function findPeakElement(nums):
             left = mid + 1
     return left
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Binary search for peak
   * Understanding of local maxima
   * Time complexity of O(log n)
-### 5.10 Search in a Binary Search Tree
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Search for a value in a Binary Search Tree (BST) and return the subtree rooted with that node.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Binary Search Tree
   * Search value
   * Return subtree or null
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function searchBST(root, val):
     if root is null or root.val == val:
@@ -1763,20 +1397,20 @@ function searchBST(root, val):
     else:
         return searchBST(root.right, val)
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Leveraging BST properties for efficient search
   * Recursive vs. iterative implementation
   * Correct traversal based on comparison
 ----
 ## 6. Dynamic Programming
-### 6.1 Climbing Stairs<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * You are climbing a staircase. It takes n steps to reach the top. Each time you can climb 1 or 2 steps. In how many distinct ways can you climb to the top?
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Number of steps n
   * Climbing 1 or 2 steps
   * Return number of ways
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function climbStairs(n):
     if n <= 2:
@@ -1788,18 +1422,18 @@ function climbStairs(n):
         dp[i] = dp[i-1] + dp[i-2]
     return dp[n]
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Identifying the recurrence relation
   * Dynamic programming vs. recursion
   * Space optimization (using variables instead of array)
-### 6.2 House Robber<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * You are a professional robber planning to rob houses along a street. Each house has a certain amount of money. Adjacent houses cannot be robbed on the same night. Determine the maximum amount of money you can rob tonight without alerting the police.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of integers (money in houses)
   * No two adjacent houses
   * Return maximum money
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function rob(nums):
     prev1 = 0
@@ -1810,20 +1444,20 @@ function rob(nums):
         prev2 = temp
     return prev1
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Dynamic programming approach
   * Optimal substructure identification
   * Space-efficient solution
 
-### 6.3 Longest Increasing Subsequence<!-- {"fold":true} -->
+### ********** #####
 
-* **Problem Statement:**
+### **Problem Statement:**
   * Find the length of the longest increasing subsequence in an unsorted array of integers.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Unsorted array
   * Longest increasing subsequence
   * Return length
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function lengthOfLIS(nums):
     if not nums:
@@ -1835,18 +1469,18 @@ function lengthOfLIS(nums):
                 dp[i] = max(dp[i], dp[j] + 1)
     return max(dp)
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Nested loops for DP solution
   * Time complexity optimization (e.g., using binary search)
   * Correctly updating DP array
-### 6.4 Coin Change<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given an integer array coins representing coins of different denominations and an integer amount, compute the fewest number of coins that you need to make up that amount.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of coin denominations
   * Target amount
   * Return minimum number of coins
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function coinChange(coins, amount):
     dp = [amount + 1] * (amount + 1)
@@ -1856,18 +1490,18 @@ function coinChange(coins, amount):
             dp[x] = min(dp[x], dp[x - coin] + 1)
     return dp[amount] if dp[amount] != amount + 1 else -1
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Bottom-up dynamic programming approach
   * Correct initialization of DP array
   * Handling cases where amount cannot be formed
-### 6.5 Unique Paths<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * A robot is located at the top-left corner of an m x n grid. It can only move either down or right at any point. Find the number of unique paths to reach the bottom-right corner.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * m x n grid
   * Move right or down
   * Return number of unique paths
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function uniquePaths(m, n):
     dp = [1] * n
@@ -1876,18 +1510,18 @@ function uniquePaths(m, n):
             dp[j] += dp[j - 1]
     return dp[-1]
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Dynamic programming table setup
   * Optimizing space usage
   * Understanding combinatorial paths
-### 6.6 Decode Ways<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a string containing only digits, determine the total number of ways to decode it.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * String of digits
   * Mapping to letters (A-Z)
   * Return number of decoding ways
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function numDecodings(s):
     if not s or s[0] == '0':
@@ -1905,18 +1539,18 @@ function numDecodings(s):
             dp[i] += dp[i-2]
     return dp[n]
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Handling single and double digit mappings
   * Managing leading zeros
   * Dynamic programming approach
-### 6.7 Edit Distance<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given two words word1 and word2, find the minimum number of operations required to convert word1 to word2.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Two strings
   * Operations: insert, delete, replace
   * Return minimum operations
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function minDistance(word1, word2):
     m = len(word1)
@@ -1934,18 +1568,18 @@ function minDistance(word1, word2):
                 dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])
     return dp[m][n]
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Correct initialization of DP table
   * Handling of different operations
   * Space and time complexity optimization
-### 6.8 Partition Equal Subset Sum<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Determine if a given set can be partitioned into two subsets such that the sum of elements in both subsets is equal.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of integers
   * Partition into two equal subsets
   * Return boolean
-  * **Pseudocode:**
+  ### **Pseudocode:**
 ```
 function canPartition(nums):
     total = sum(nums)
@@ -1959,18 +1593,18 @@ function canPartition(nums):
             dp[j] = dp[j] or dp[j - num]
     return dp[target]
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Transforming problem to subset sum
   * Dynamic programming approach
   * Space optimization techniques
-### 6.9 Longest Palindromic Substring<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Find the longest palindromic substring in a given string.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * String input
   * Longest palindromic substring
   * Return substring
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function longestPalindrome(s):
     if not s:
@@ -1991,18 +1625,18 @@ function expandAroundCenter(s, left, right):
         right += 1
     return right - left - 1
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Center expansion technique
   * Handling odd and even length palindromes
   * Time and space complexity
-### 6.10 Longest Common Subsequence<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given two strings text1 and text2, return the length of their longest common subsequence.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Two strings
   * Longest common subsequence
   * Return length
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function longestCommonSubsequence(text1, text2):
     m = len(text1)
@@ -2016,18 +1650,18 @@ function longestCommonSubsequence(text1, text2):
                 dp[i][j] = max(dp[i-1][j], dp[i][j-1])
     return dp[m][n]
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Dynamic programming table setup
   * Correct identification of subsequence vs. substring
   * Optimization of space usage
-### 6.11 Maximum Product Subarray<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Find the contiguous subarray within an array which has the largest product.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of integers
   * Contiguous subarray
   * Maximum product
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function maxProduct(nums):
     if not nums:
@@ -2041,18 +1675,18 @@ function maxProduct(nums):
         result = max(result, max_prod)
     return result
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Tracking both maximum and minimum products
   * Handling negative numbers
   * Efficient single pass solution
-### 6.12 Burst Balloons<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given n balloons, each with a number, find the maximum coins you can collect by bursting the balloons wisely.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of integers (balloon values)
   * Burst balloons for coins
   * Return maximum coins
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function maxCoins(nums):
     n = len(nums)
@@ -2066,18 +1700,18 @@ function maxCoins(nums):
                                       dp[left][i-1] + nums[left-1] * nums[i] * nums[right+1] + dp[i+1][right])
     return dp[1][n]
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Understanding of dynamic programming intervals
   * Optimal substructure identification
   * Correct handling of boundary conditions
-### 6.13 Dungeon Game<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * The demons had captured the princess and imprisoned her in the bottom-right corner of a dungeon. Find the minimum initial health required to rescue the princess.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * 2D grid (dungeon)
   * Minimum initial health
   * Return integer value
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function calculateMinimumHP(dungeon):
     m = len(dungeon)
@@ -2094,18 +1728,18 @@ function calculateMinimumHP(dungeon):
             dp[i][j] = max(1, min_health - dungeon[i][j])
     return dp[0][0]
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Reverse traversal of the grid
   * Dynamic programming for optimal path
   * Handling of health boundaries
-### 6.14 Decode Ways II<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Similar to Decode Ways, but the string may contain ‘*’ characters which can represent any digit from 1 to 9.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * String with digits and ‘*’
   * Decode ways considering ‘*’
   * Return number of decoding ways modulo 10^9 + 7
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function numDecodingsII(s):
     MOD = 10**9 + 7
@@ -2135,18 +1769,18 @@ function numDecodingsII(s):
         dp[i] %= MOD
     return dp[n]
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Handling wildcard ‘*’ in decoding
   * Managing multiple cases for ‘*’
   * Dynamic programming with modulo operations
-### 6.15 Longest Palindromic Subsequence<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Find the length of the longest palindromic subsequence in a given string.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * String input
   * Longest palindromic subsequence
   * Return length
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function longestPalindromeSubseq(s):
     n = len(s)
@@ -2160,18 +1794,18 @@ function longestPalindromeSubseq(s):
                 dp[i][j] = max(dp[i+1][j], dp[i][j-1])
     return dp[0][n-1]
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Dynamic programming approach
   * Correctly identifying palindromic conditions
   * Time and space optimization
-### 6.16 Palindrome Partitioning<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitioning of s.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * String input
   * Palindromic substrings
   * Return list of partitions
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function partition(s):
     result = []
@@ -2197,18 +1831,18 @@ function isPalindrome(s, left, right):
         right -= 1
     return true
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Backtracking approach
   * Pruning non-palindromic paths
   * Correctly building and backtracking partitions
-### 6.17 Unique Paths II<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Similar to Unique Paths, but some cells are obstacles. Find the number of unique paths avoiding obstacles.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * m x n grid with obstacles
   * Move right or down
   * Return number of unique paths
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function uniquePathsWithObstacles(obstacleGrid):
     m = len(obstacleGrid)
@@ -2223,18 +1857,18 @@ function uniquePathsWithObstacles(obstacleGrid):
                 dp[j] += dp[j - 1]
     return dp[-1]
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Adjusting DP for obstacles
   * Correct initialization based on obstacles
   * Space optimization techniques
-### 6.18 Word Break<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a string s and a dictionary of strings wordDict, determine if s can be segmented into a space-separated sequence of one or more dictionary words.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * String s
   * Word dictionary wordDict
   * Return boolean
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function wordBreak(s, wordDict):
     word_set = set(wordDict)
@@ -2247,19 +1881,19 @@ function wordBreak(s, wordDict):
                 break
     return dp[len(s)]
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Dynamic programming approach
   * Efficient substring checking
   * Handling overlapping words
-### 6.19 Longest Arithmetic Subsequence<!-- {"fold":true} -->
+### ********** #####
 
-* **Problem Statement:**
+### **Problem Statement:**
   * Given an array A of integers, return the length of the longest arithmetic subsequence in A.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of integers
   * Arithmetic subsequence
   * Return length
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function longestArithSeqLength(A):
     dp = [{} for _ in range(len(A))]
@@ -2271,18 +1905,18 @@ function longestArithSeqLength(A):
             max_len = max(max_len, dp[i][diff])
     return max_len
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Using hash maps to track differences
   * Dynamic programming for subsequence lengths
   * Efficient handling of differences
-### 6.20 Longest Valid Parentheses<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Find the length of the longest valid (well-formed) parentheses substring.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * String of parentheses
   * Longest valid substring
   * Return length
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function longestValidParentheses(s):
     stack = [-1]
@@ -2298,20 +1932,20 @@ function longestValidParentheses(s):
                 max_length = max(max_length, i - stack[-1])
     return max_length
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Use of stack to track indices
   * Handling unmatched parentheses
   * Correct calculation of valid lengths
 -----
 ## 7. Recursion and Backtracking
-### 7.1 Permutations<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given an array nums of distinct integers, return all possible permutations.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of distinct integers
   * All possible permutations
   * Return list of permutations
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function permute(nums):
     result = []
@@ -2327,18 +1961,18 @@ function backtrack(nums, path, result):
         backtrack(nums[:i] + nums[i+1:], path, result)
         path.pop()
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Backtracking approach
   * Correctly managing visited elements
   * Efficiency in recursion
-### 7.2 Subsets<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given an integer array nums, return all possible subsets (the power set).
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of integers
   * All subsets
   * Return list of subsets
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function subsets(nums):
     result = []
@@ -2352,18 +1986,18 @@ function backtrack(nums, start, path, result):
         backtrack(nums, i + 1, path, result)
         path.pop()
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Recursive backtracking to generate subsets
   * Managing start index to avoid duplicates
   * Handling empty and full subsets
-### 7.3 Combination Sum<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given an array of distinct integers candidates and a target integer target, return all unique combinations where the candidate numbers sum to target.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of distinct integers
   * Target sum
   * Return unique combinations
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function combinationSum(candidates, target):
     candidates.sort()
@@ -2382,18 +2016,18 @@ function backtrack(candidates, target, start, path, result):
         backtrack(candidates, target - candidates[i], i, path, result)
         path.pop()
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Allowing repeated elements
   * Backtracking with pruning
   * Correctly handling duplicates
-### 7.4 N-Queens
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * The n-queens puzzle is the problem of placing n queens on an n×n chessboard so that no two queens threaten each other. Return all distinct solutions.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * n x n chessboard
   * Place n queens without conflict
   * Return list of solutions
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function solveNQueens(n):
     result = []
@@ -2425,18 +2059,18 @@ function formatBoard(board, n):
         formatted.append(''.join(row))
     return formatted
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Backtracking with constraint checks
   * Efficient conflict detection
   * Correctly formatting solutions
-### 7.5 Letter Combinations of a Phone Number<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * String of digits (2-9)
   * Letter mapping (phone keypad)
   * Return list of combinations
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function letterCombinations(digits):
     if not digits:
@@ -2458,18 +2092,18 @@ function backtrack(digits, index, path, result, mapping):
         backtrack(digits, index + 1, path, result, mapping)
         path.pop()
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Mapping digits to letters
   * Backtracking to generate combinations
   * Handling empty input
-### 7.6 Word Search<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a 2D board and a word, find if the word exists in the grid by moving horizontally or vertically.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * 2D grid of characters
   * Search word
   * Return boolean
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function exist(board, word):
     m = len(board)
@@ -2494,18 +2128,18 @@ function backtrack(board, word, i, j, index):
     board[i][j] = temp
     return found
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Backtracking with DFS
   * Marking visited cells
   * Handling boundary conditions
-### 7.7 Combination Sum II<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Similar to Combination Sum, but each number in candidates may only be used once.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of integers (with duplicates)
   * Target sum
   * Return unique combinations
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function combinationSum2(candidates, target):
     candidates.sort()
@@ -2526,18 +2160,18 @@ function backtrack(candidates, target, start, path, result):
         backtrack(candidates, target - candidates[i], i + 1, path, result)
         path.pop()
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Handling duplicates by sorting and skipping
   * Ensuring each element is used once
   * Efficient backtracking with pruning
-### 7.8 Generate Parentheses<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Generate all combinations of well-formed parentheses for a given number n.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Number n pairs
   * Well-formed parentheses
   * Return list of combinations
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function generateParenthesis(n):
     result = []
@@ -2553,18 +2187,18 @@ function backtrack(result, current, open, close, max):
     if close < open:
         backtrack(result, current + ")", open, close + 1, max)
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Maintaining balance of parentheses
   * Backtracking with constraints on open and close
   * Efficient generation without duplicates
-### 7.9 Restore IP Addresses<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a string containing only digits, restore it by returning all possible valid IP address combinations.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * String of digits
   * Valid IP address segments
   * Return list of valid IPs
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function restoreIpAddresses(s):
     result = []
@@ -2592,19 +2226,19 @@ function isValid(segment):
         return false
     return true
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Backtracking with fixed number of segments
   * Validating each IP segment
   * Handling leading zeros
-### 7.10 Combination Sum III<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Find all possible combinations of k numbers that add up to a number n, given that only numbers from 1 to 9 can be used and each combination should be unique.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Numbers 1-9
   * Combination size k
   * Target sum n
   * Return list of combinations
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function combinationSum3(k, n):
     result = []
@@ -2622,18 +2256,18 @@ function backtrack(start, k, n, path, result):
         backtrack(i + 1, k - 1, n - i, path, result)
         path.pop()
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Unique combinations by incrementing start
   * Backtracking with constraints on size and sum
   * Pruning paths that exceed target
-### 7.11 Sudoku Solver<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Write a program to solve a Sudoku puzzle by filling the empty cells.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * 9x9 Sudoku grid
   * Fill empty cells with valid numbers
   * Modify grid in-place
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function solveSudoku(board):
     solve(board)
@@ -2663,19 +2297,19 @@ function isValid(board, row, col, c):
                 return false
     return true
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Backtracking approach
   * Validity checks for Sudoku rules
   * Optimizing search to reduce time
-### 7.12 Letter Case Permutation<!-- {"fold":true} -->
+### ********** #####
 
-* **Problem Statement:**
+### **Problem Statement:**
   * Given a string s, you can transform every letter individually to be lowercase or uppercase. Return a list of all possible permutations.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * String with letters and digits
   * Transform letters to lowercase or uppercase
   * Return list of permutations
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function letterCasePermutation(s):
     result = []
@@ -2692,19 +2326,19 @@ function backtrack(s, index, path, result):
     else:
         backtrack(s, index + 1, path + s[index], result)
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Handling letters and digits separately
   * Backtracking to explore all cases
   * Efficient string manipulation
 
-### 7.13 Generate All Binary Strings<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Generate all binary strings of length n.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Integer n
   * Binary strings of length n
   * Return list of strings
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function generateBinaryStrings(n):
     result = []
@@ -2718,18 +2352,18 @@ function backtrack(n, path, result):
     backtrack(n, path + "0", result)
     backtrack(n, path + "1", result)
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Recursive generation of strings
   * Managing binary choices at each step
   * Handling base cases correctly
-### 7.14 Generate All Combinations of Well-Formed Parentheses<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Similar to Generate Parentheses, but ensuring all combinations are well-formed.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Number of pairs n
   * Well-formed parentheses
   * Return list of combinations
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function generateParenthesis(n):
     result = []
@@ -2745,19 +2379,19 @@ function backtrack(result, current, open, close, max):
     if close < open:
         backtrack(result, current + ")", open, close + 1, max)
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Ensuring balance between open and close
   * Efficiently generating only valid strings
   * Pruning invalid paths early
 
-### 7.15 Combination Sum IV<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given an integer array nums and a target integer target, return the number of possible combinations that add up to target.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of integers
   * Target sum
   * Return number of combinations
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function combinationSum4(nums, target):
     dp = [0] * (target + 1)
@@ -2768,18 +2402,18 @@ function combinationSum4(nums, target):
                 dp[i] += dp[i - num]
     return dp[target]
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Dynamic programming approach
   * Order matters in combinations
   * Handling of repeated elements
-### 7.16 Generate All Possible Full Binary Trees<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Generate all possible full binary trees with n nodes.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Integer n (odd)
   * Full binary trees (each node has 0 or 2 children)
   * Return list of trees
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function allPossibleFBT(n):
     if n % 2 == 0:
@@ -2799,18 +2433,18 @@ function allPossibleFBT(n):
                 result.append(root)
     return result
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Recursive tree generation
   * Ensuring all trees are full
   * Memoization for optimization (if applicable)
-### 7.17 Letter Combinations of a Phone Number with Repeating Characters<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Similar to Letter Combinations, but allow letters to repeat based on input characters.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * String with digits
   * Repeating letters based on input
   * Return list of combinations
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function letterCombinationsWithRepeats(digits):
     if not digits:
@@ -2830,19 +2464,19 @@ function backtrack(digits, index, path, result, mapping):
     for char in mapping[digits[index]]:
         backtrack(digits, index + 1, path + char, result, mapping)
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Correct mapping of digits to letters
   * Allowing repeated letters as per digits
   * Efficient backtracking implementation
-### 7.18 Combination Sum III<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Find all possible combinations of k numbers that add up to a number n, with numbers ranging from 1 to 9 and each number used at most once.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Numbers 1-9
   * Combination size k
   * Target sum n
   * Return list of combinations
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function combinationSum3(k, n):
     result = []
@@ -2860,19 +2494,19 @@ function backtrack(start, k, n, path, result):
         backtrack(i + 1, k - 1, n - i, path, result)
         path.pop()
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Ensuring unique numbers in combinations
   * Backtracking with correct constraints
   * Efficient pruning of invalid paths
 
-### 7.19 Restore IP Addresses with Obfuscated Input<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Similar to Restore IP Addresses, but some digits are obfuscated and represented by ‘*’. Restore all valid IP addresses considering possible digit replacements.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * String with digits and ‘*’
   * Valid IP address segments
   * Return list of valid IPs
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function restoreIPAddressesWithStars(s):
     result = []
@@ -2907,18 +2541,18 @@ function generatePossibleSegments(segment):
             return results
     return [segment]
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Handling wildcard ‘*’ in segments
   * Generating all possible replacements
   * Ensuring segments are valid IP parts
-### 7.20 Combination Sum IV with Constraints
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Similar to Combination Sum IV, but with additional constraints on the order of elements.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of integers
   * Target sum with order constraints
   * Return number of combinations
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function combinationSum4WithConstraints(nums, target, constraint):
     dp = [0] * (target + 1)
@@ -2930,20 +2564,20 @@ function combinationSum4WithConstraints(nums, target, constraint):
     return dp[target]
 ```
 *Note: The* *satisfiesConstraint* *function needs to be defined based on the specific constraints.*
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Incorporating additional constraints into DP
   * Ensuring combinations meet specified conditions
   * Adjusting DP transitions accordingly
 ------
-## 8. Bit Manipulation<!-- {"fold":true} -->
-### 8.1 Single Number<!-- {"fold":true} -->
-* **Problem Statement:**
+## 8. Bit Manipulation
+### ********** #####
+### **Problem Statement:**
   * Given a non-empty array of integers, every element appears twice except for one. Find that single one.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of integers
   * Every element appears twice except one
   * Return the single number
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function singleNumber(nums):
     result = 0
@@ -2951,18 +2585,18 @@ function singleNumber(nums):
         result ^= num
     return result
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Use of XOR operation
   * Understanding bitwise properties
   * Space-efficient solution
-### 8.2 Hamming Distance<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * The Hamming distance between two integers is the number of positions at which the corresponding bits are different. Compute the Hamming distance.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Two integers
   * Bit difference count
   * Return integer distance
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function hammingDistance(x, y):
     xor = x ^ y
@@ -2972,18 +2606,18 @@ function hammingDistance(x, y):
         xor >>= 1
     return distance
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Bitwise XOR to find differing bits
   * Counting set bits
   * Alternative methods (Brian Kernighan’s algorithm)
-### 8.3 Number of 1 Bits<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Write a function that takes an unsigned integer and returns the number of ‘1’ bits it has.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Unsigned integer
   * Count ‘1’ bits
   * Return count
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function hammingWeight(n):
     count = 0
@@ -2992,36 +2626,36 @@ function hammingWeight(n):
         n >>= 1
     return count
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Bitwise operations to count bits
   * Efficient looping
   * Handling of edge cases (e.g., n = 0)
-### 8.4 Power of Two<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given an integer, write a function to determine if it is a power of two.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Integer input
   * Check if power of two
   * Return boolean
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function isPowerOfTwo(n):
     return n > 0 and (n & (n - 1)) == 0
 
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Bitwise trick to check power of two
   * Understanding binary representations
   * Edge case handling (n <= 0)
 
-### 8.5 Counting Bits<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a non-negative integer num, return an array containing the number of 1’s in the binary representation of each number from 0 to num.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Integer num
   * Count ‘1’ bits for each number
   * Return array of counts
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function countBits(num):
     dp = [0] * (num + 1)
@@ -3029,18 +2663,18 @@ function countBits(num):
         dp[i] = dp[i >> 1] + (i & 1)
     return dp
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Dynamic programming approach
   * Efficient bit manipulation
   * Understanding of binary patterns
-### 8.6 Reverse Bits<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Reverse the bits of a given 32 bits unsigned integer.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * 32-bit unsigned integer
   * Reverse bits
   * Return reversed integer
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function reverseBits(n):
     result = 0
@@ -3049,18 +2683,18 @@ function reverseBits(n):
         n >>= 1
     return result
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Bit shifting and masking
   * Correct handling of all 32 bits
   * Efficient single pass
-### 8.7 Single Number II<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given an array of integers, every element appears three times except for one. Find that single one.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of integers
   * Every element appears three times except one
   * Return the single number
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function singleNumberII(nums):
     ones = twos = 0
@@ -3069,19 +2703,19 @@ function singleNumberII(nums):
         twos = (twos ^ num) & ~ones
     return ones
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Bitwise operations to handle multiple occurrences
   * Understanding of finite state machines with bits
   * Space-efficient solution
 
-### 8.8 Number Complement<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Positive integer
   * Flip bits
   * Return complement integer
-  * **Pseudocode:**
+  ### **Pseudocode:**
 ```
 function findComplement(num):
     mask = 1
@@ -3089,18 +2723,18 @@ function findComplement(num):
         mask = (mask << 1) | 1
     return mask ^ num
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Creating a mask with all bits set
   * Bitwise XOR to flip bits
   * Handling of edge cases
-### 8.9 Reverse Only Letters<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a string S, reverse only the letters and keep other characters in the same position.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * String with letters and non-letters
   * Reverse only letters
   * Return modified string
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function reverseOnlyLetters(S):
     chars = list(S)
@@ -3117,18 +2751,18 @@ function reverseOnlyLetters(S):
         right -= 1
     return ''.join(chars)
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Two-pointer approach
   * Identifying and skipping non-letter characters
   * In-place character swapping
-### 8.10 Find All Numbers Disappeared in an Array<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), find all the elements of [1, n] inclusive that do not appear in this array.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of integers (1 ≤ a[i] ≤ n)
   * Find missing numbers
   * Return list of missing integers
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function findDisappearedNumbers(nums):
     for i from 0 to len(nums) - 1:
@@ -3141,20 +2775,20 @@ function findDisappearedNumbers(nums):
             result.append(i + 1)
     return result
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * In-place marking using indices
   * Handling duplicates
   * Space-efficient solution
 ----
-## 9. Mathematical Problems<!-- {"fold":true} -->
-### 9.1 Reverse Integer<!-- {"fold":true} -->
-* **Problem Statement:**
+## 9. Mathematical Problems
+### ********** #####
+### **Problem Statement:**
   * Given a 32-bit signed integer, reverse its digits. If reversing causes the integer to go outside the signed 32-bit integer range, return 0.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * 32-bit signed integer
   * Reverse digits
   * Handle overflow
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function reverse(x):
     rev = 0
@@ -3168,19 +2802,19 @@ function reverse(x):
         rev = rev * 10 + pop
     return sign * rev
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Handling negative numbers
   * Preventing overflow
   * Correct digit manipulation
-### 9.2 Palindrome Number<!-- {"fold":true} -->
+### ********** #####
 
-* **Problem Statement:**
+### **Problem Statement:**
   * Determine whether an integer is a palindrome without using extra space.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Integer input
   * Check palindrome
   * Return boolean
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function isPalindrome(x):
     if x < 0 or (x % 10 == 0 and x != 0):
@@ -3191,18 +2825,18 @@ function isPalindrome(x):
         x = x // 10
     return x == reversed or x == reversed // 10
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Avoiding extra space by reversing half the number
   * Handling edge cases (negative numbers, zeros)
   * Efficient digit manipulation
-### 9.3 Excel Sheet Column Number<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a string representing the column title as appear in an Excel sheet, return its corresponding column number.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Excel column title (e.g., “A”, “AB”)
   * Convert to number
   * Return integer
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function titleToNumber(s):
     result = 0
@@ -3210,18 +2844,18 @@ function titleToNumber(s):
         result = result * 26 + (ord(char) - ord('A') + 1)
     return result
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Understanding of base-26 number system
   * Correct mapping from characters to numbers
   * Handling multiple characters
-### 9.4 Excel Sheet Column Title<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a positive integer, return its corresponding column title as appear in an Excel sheet.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Positive integer
   * Convert to Excel column title
   * Return string
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function numberToTitle(n):
     result = []
@@ -3231,18 +2865,18 @@ function numberToTitle(n):
         n = n // 26
     return ''.join(reversed(result))
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Correct handling of 1-based indexing
   * Looping until number is zero
   * Building the string in reverse order
-### 9.5 Roman to Integer<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Convert a Roman numeral to an integer.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Roman numeral string
   * Convert to integer
   * Return integer value
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function romanToInt(s):
     roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50,
@@ -3258,18 +2892,18 @@ function romanToInt(s):
         prev = current
     return total
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Handling subtractive notation
   * Iterating from end to start
   * Efficient mapping and lookup
-### 9.6 Integer to Roman<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Convert an integer to a Roman numeral.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Integer input
   * Convert to Roman numeral
   * Return string
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function intToRoman(num):
     val = [
@@ -3291,36 +2925,36 @@ function intToRoman(num):
             num -= val[i]
     return roman
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Correct handling of subtractive cases
   * Iterating through value-symbol pairs
   * Efficient string construction
-### 9.7 Power of Four<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given an integer, determine if it is a power of four.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Integer input
   * Check if power of four
   * Return boolean
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 
 function isPowerOfFour(n):
     return n > 0 and (n & (n - 1)) == 0 and (n - 1) % 3 == 0
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Bitwise checks for power of two
   * Additional condition for power of four
   * Handling of edge cases
 
-### 9.8 Fizz Buzz<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Write a program that outputs the string representation of numbers from 1 to n. But for multiples of three, output “Fizz” instead of the number and for the multiples of five, output “Buzz”. For numbers which are multiples of both three and five, output “FizzBuzz”.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Integer n
   * Multiples of 3 and 5
   * Return list of strings
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function fizzBuzz(n):
     result = []
@@ -3335,38 +2969,38 @@ function fizzBuzz(n):
             result.append(str(i))
     return result
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Correctly handling multiple conditions
   * Efficient iteration
   * Clear and concise implementation
 
-### 9.9 Missing Number<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Array of size n with numbers 0 to n
   * Find missing number
   * Return integer
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function missingNumber(nums):
     n = len(nums)
     total = n * (n + 1) // 2
     return total - sum(nums)
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Mathematical approach using sum formula
   * Alternative methods (bitwise XOR)
   * Handling of edge cases
 
-### 9.10 Number of Steps to Reduce a Number to Zero<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Given a non-negative integer num, return the number of steps to reduce it to zero. In one step, if the current number is even, divide it by 2; otherwise, subtract 1 from it.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Non-negative integer
   * Reduce to zero with specific steps
   * Return step count
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 function numberOfSteps(num):
     steps = 0
@@ -3378,21 +3012,21 @@ function numberOfSteps(num):
         steps += 1
     return steps
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Iterative approach
   * Correct handling of even and odd cases
   * Efficient loop termination
 
 ------
-## 10. System Design and Scalability<!-- {"fold":true} -->
-### 10.1 Design a URL Shortener<!-- {"fold":true} -->
-* **Problem Statement:**
+## 10. System Design and Scalability
+### ********** #####
+### **Problem Statement:**
   * Design a URL shortening service like TinyURL that encodes a long URL to a short one and decodes the short URL back to the original URL.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Encode long URLs to short URLs
   * Decode short URLs to original
   * Handle scalability and uniqueness
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 class URLShortener:
     def __init__():
@@ -3418,19 +3052,19 @@ class URLShortener:
             id = id // self.base
         return ''.join(reversed(short))
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Unique short URL generation
   * Efficient encoding and decoding
   * Scalability considerations (e.g., distributed systems, databases)
   * Handling collisions and redundancy
-### 10.2 Design a Cache System (LRU Cache)<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Capacity limit
   * Operations: get and put
   * Evict least recently used item
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 class LRUCache:
     def __init__(self, capacity):
@@ -3458,19 +3092,19 @@ class LRUCache:
             self.order.addToFront(new_node)
             self.cache[key] = new_node
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Combination of hash map and doubly linked list for O(1) operations
   * Correctly updating usage order
   * Handling capacity limits and evictions
 
-### 10.3 Design a Rate Limiter<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Design a rate limiter that restricts the number of requests a user can make within a certain time window.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * User identification
   * Time window and request limit
   * Efficient tracking and enforcement
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 class RateLimiter:
     def __init__(self, max_requests, window_size):
@@ -3489,20 +3123,20 @@ class RateLimiter:
             return true
         return false
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Efficient data structures for tracking timestamps (e.g., deque)
   * Correctly sliding the time window
   * Handling multiple users and scalability
 
-### 10.4 Design a Distributed System for Real-Time Chat<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Design a real-time chat application that supports messaging between users with features like online presence and message history.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Real-time messaging
   * Online presence
   * Message history
   * Scalability and fault tolerance
-* **Pseudocode:**
+### **Pseudocode:**
 *Note: System design typically involves architectural diagrams and explanations rather than pseudocode. Below is a high-level approach.*
 
 Components:
@@ -3519,19 +3153,19 @@ Workflow:
 	- Chat Service subscribes to Message Broker to route messages to recipients
 	- Presence Service updates online status in real-time
 	- Message history is stored in the database for retrieval
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Scalability across multiple servers
   * Handling real-time communication efficiently
   * Ensuring data consistency and fault tolerance
   * Security considerations (e.g., authentication, encryption)
-### 10.5 Design a File System<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Design a basic file system with directories and files, supporting operations like create, delete, and list.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Hierarchical directories and files
   * Operations: create, delete, list
   * Efficient storage and retrieval
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 class FileSystem:
     def __init__():
@@ -3559,18 +3193,18 @@ class FileSystem:
             current = current.children[part]
         return current.value if isinstance(current, File) else -1
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Hierarchical data structure implementation
   * Efficient path parsing and traversal
   * Handling of edge cases and errors
-### 10.6 Design a Rate Limiter with Multiple Rate Limits<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Design a rate limiter that can handle multiple rate limits (e.g., per second, per minute, per hour) for each user.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Multiple rate limits per user
   * Time windows of different sizes
   * Efficient tracking and enforcement
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 class MultiRateLimiter:
     def __init__(self, rate_limits):
@@ -3591,18 +3225,18 @@ class MultiRateLimiter:
             self.user_requests[user_id][window].append(timestamp)
         return true
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Handling multiple queues for different windows
   * Efficiently managing sliding windows
   * Ensuring atomicity and thread-safety in distributed systems
-### 10.7 Design a Notification System<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Design a notification system that sends real-time alerts to users based on specific triggers.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Real-time notifications
   * Triggers based on events
   * Scalability and reliability
-* **Pseudocode:**
+### **Pseudocode:**
 *Note: System design involves architectural components rather than pseudocode.*
 
 Components:
@@ -3618,19 +3252,19 @@ Workflow:
 	- For each event, Notification Service checks user preferences
 	- Sends notifications via the preferred channels
 	- Ensures delivery and handles retries/failures
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Asynchronous processing of events
   * Handling high throughput and low latency
   * Ensuring reliability and fault tolerance
 
-### 10.8 Design a Load Balancer<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Design a load balancer that distributes incoming network traffic across multiple servers to ensure reliability and performance.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Distribute network traffic
   * Multiple backend servers
   * Ensure reliability and scalability
-* **Pseudocode:**
+### **Pseudocode:**
 *Note: System design involves architectural components rather than pseudocode.*
 
 Components:
@@ -3645,18 +3279,18 @@ Workflow:
 	- Forward the request to the selected server
 	- Health Checker periodically checks server statuses
 	- Remove unhealthy servers from the rotation
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Different load balancing algorithms
   * Health monitoring of servers
   * Handling of server failures and traffic spikes
-### 10.9 Design a Distributed Lock<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Design a distributed lock system that ensures mutual exclusion across multiple nodes in a distributed environment.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * Distributed environment
   * Mutual exclusion
   * Handle lock acquisition and release
-* **Pseudocode:**
+### **Pseudocode:**
 ```
 *class* DistributedLock:
     *de*f __init__(self, redis_client, lock_key, expiration):
@@ -3677,19 +3311,19 @@ Workflow:
         """
         return self.redis.eval(script, 1, self.lock_key, identifier)
 ```
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Use of atomic operations (e.g., Redis SET with NX)
   * Ensuring lock ownership before release
   * Handling of expiration to prevent deadlocks
 
-### 10.10 Design a Notification Queue<!-- {"fold":true} -->
-* **Problem Statement:**
+### ********** #####
+### **Problem Statement:**
   * Design a notification queue system that handles high volumes of notifications with guaranteed delivery and scalability.
-* **Key Identifiers:**
+### **Key Identifiers:**
   * High volume notifications
   * Guaranteed delivery
   * Scalability and fault tolerance
-* **Pseudocode:**
+### **Pseudocode:**
 *Note: System design involves architectural components rather than pseudocode.*
 
 Components:
@@ -3705,11 +3339,11 @@ Workflow:
 	- Upon successful sending, message is acknowledged and removed
 	- Failed deliveries are retried based on retry policy
 	- System scales by adding more workers as load increases
-* **Key Details Interviewers Look For:**
+### **Key Details Interviewers Look For:**
   * Ensuring message durability and reliability
   * Handling retries and failures
   * Scaling consumers to match producer rate
-# Conclusion<!-- {"fold":true} -->
+# Conclusion
 ----
 ## **Tips for Using This List:**
 1. **Categorize Your Study:** Focus on one category at a time to build depth before breadth.
