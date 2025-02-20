@@ -71,7 +71,9 @@
     {
       "group": "API Documentation",
       "pages": [
-        "api-reference/introduction"
+        "api-reference/introduction",
+        "api-reference/bazel-cook",
+        "api-reference/bazel-query"
       ]
     }
   ],
