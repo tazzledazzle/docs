@@ -1,0 +1,145 @@
+---
+title: Bazel Query Cheatsheet
+Description: Helpful page on running bazel queries
+---
+
+
+
+# Dec 6, 2024 at 7:30 AM
+Bazel / Starlark experience
+- previous experience
+
+Below is a focused “cheatsheet” style reference for using **Bazel** query and **cquery** (configurable query), including key commands, common patterns, and best practices. These tools are essential for understanding complex dependency graphs, analyzing configurations, and debugging build issues in large monorepos.
+
+### Overview
+**Bazel Query:**
+* **Purpose:** Analyze the static dependency graph of your Bazel project.
+* **Use Cases:**
+* Discovering reverse dependencies: "What depends on this target?"
+* Listing all targets in a path: "Which targets are under //some/package?"
+* Visualizing dependency trees to understand build structure.
+
+⠀**Bazel Cquery (Configurable Query):**
+* **Purpose:** Similar to query, but understands configuration transitions and can evaluate queries in the context of specific build configurations.
+* **Use Cases:**
+* Determining which configurations apply to a given target and why.
+* Debugging platform constraints or toolchain selection logic.
+* Analyzing how different flags (e.g., --platforms) change the dependency graph.
+
+⠀
+## Basic Usage
+**Query Command:**
+```
+bazel query [expression] [flags]
+```
+**Cquery Command:**
+```
+bazel cquery [expression] [flags]
+```
+**Common Flags:**
+* `—output=`: Specifies how results are displayed (e.g., text, label, graph, label_kind).
+* `—universe_scope=`: Restricts the set of targets Bazel considers when evaluating queries (improves performance).
+* `—noimplicit_deps`: Exclude implicit dependencies (e.g., toolchain dependencies) for clarity.
+## Common Query Expressions
+**Find All Targets in a Package:**
+```
+bazel query //path/to/package:all
+```
+* Returns all rules (libraries, binaries, tests) within //path/to/package.
+
+### ⠀**Find All Dependents of a Target (Reverse Dependencies):**
+```
+bazel query "rdeps(//..., //path/to:target)"
+```
+* Searches within //... (entire workspace) for targets that depend on //path/to:target.
+
+⠀**Find All Dependencies of a Target (Forward Dependencies):**
+### bazel query "deps(//path/to:target)"
+* Lists all transitive dependencies of the given target.
+
+⠀**Filtering by Rule Type:**
+### bazel query "kind('java_library', deps(//path/to:main))"
+* Finds all java_library targets that are in the dependency graph of //path/to:main.
+
+⠀**Intersection & Set Operations:**
+* Use intersect(...), union(...), except(...) to manipulate sets of targets. For example:
+
+⠀bazel query "intersect(deps(//path/to:a), deps(//path/to:b))"
+* Returns targets that are dependencies of both a and b.
+
+⠀
+### Graph & Visualization
+**Output as a Graph:**
+### bazel query "deps(//path/to:target)" --output graph > graph.dot
+* Generates a .dot file that can be visualized with dot or xdot.
+* Helps understand complex dependency structures visually.
+
+⠀**Shortening Output:**
+* --output=label shows only target labels, making results easier to read.
+* Combine with --noimplicit_deps to avoid clutter from toolchains and internal targets.
+
+⠀
+### Advanced Query Patterns
+**Regex Matching with Filter:**
+### bazel query "filter('test', //...)"
+* Returns all targets that have "test" in their label.
+
+⠀**Attribute Filtering:**
+### bazel query "attr(name, 'regex_pattern', //...)"
+* Filters targets by a specific attribute’s value. For example:
+
+⠀bazel query "attr(tags, 'manual', //...)"
+* Returns all targets with a tags attribute containing "manual".
+
+⠀
+### Cquery (Configurable Query) Basics
+**Why Use Cquery?**
+* While query shows the static graph, cquery shows how build flags, platforms, and transitions affect which dependencies are chosen.
+
+⠀**Basic Syntax:**
+### bazel cquery "deps(//path/to:target)" --configurations=all
+* Lists dependencies for all possible configurations.
+
+⠀**Analyze Specific Configuration:**
+### bazel cquery //path/to:target --output=textproto --experimental_buiild_setting='//path:cpu=arm64'
+* With cquery, you can specify build settings and examine how they alter the graph.
+
+⠀**Filtering by Configuration:**
+### bazel cquery "somepath(//path/to:target, //dependency:target)" --transitions=full
+* somepath is similar to deps but returns paths from one target to another.
+* --transitions=full shows which configuration transitions occur along the path.
+
+⠀
+### Useful Flags & Tips
+* --universe_scope: Limit the search scope to improve performance, e.g.: ### bazel query "deps(//path/to:target)" --universe_scope=//path/to/...
+*  Only considers targets under //path/to/.
+* --nohost_deps **and** --noimplicit_deps: Hide Bazel’s internal dependencies to see only your code’s direct graph.
+* --keep_going: Continue on errors and show partial results, useful for large codebases with potential issues.
+* --query_file: Instead of writing the query in the CLI, store a complex query in a file: ### bazel query --query_file=my_query.txt
+*
+
+⠀
+### Best Practices
+1. **Start Simple**: Begin with basic deps() or rdeps() queries and gradually add complexity.
+**2** **Limit Scope**: Use --universe_scope to reduce the search area and speed up queries in large monorepos.
+**3** **Use Filters Judiciously**: filter() and attr() are powerful but can slow down queries if applied to the entire repo. Narrow down first.
+**4** **Visualize Complex Graphs**: Export results to .dot files and visualize to better understand large dependency webs.
+**5** **Cquery for Configuration Debugging**: When platform or flag-dependent logic is at play, use cquery to see which configurations are selected and why.
+**6** **Combine Queries with Scripts**: For large-scale refactoring, integrate query/cquery results into scripts to automate analysis and changes.
+
+⠀
+### Example Workflows
+### **Finding All Tests That Depend on a Library:**
+```
+bazel query "kind('.*_test', rdeps(//..., //path/to:lib))"
+```
+### **Visualizing the Dependency Graph of a Service:**
+```
+bazel query "deps(//services/myservice:main)" --output graph > myservice_graph.dot
+dot -Tpng myservice_graph.dot -o myservice_graph.png
+```
+### **Checking Configurations with Cquery:**
+```
+bazel cquery "deps(//path/to:target)" --configurations=all
+```
+* Inspect how changes to --platforms or toolchain selection affect dependencies.
